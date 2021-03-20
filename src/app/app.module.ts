@@ -8,6 +8,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { TableComponent } from './main-layout/table/table.component';
 
 
 
@@ -15,7 +16,8 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 @NgModule({
   declarations: [
     AppComponent,
-    MainLayoutComponent
+    MainLayoutComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,

@@ -8,7 +8,7 @@ import { DataService, ICredit } from '../Services/data.service';
 })
 export class MainLayoutComponent implements OnInit {
 
-  data: Array<ICredit | null> = [];
+  data:Array<ICredit | null> = []; 
 
   constructor(
     private dataService: DataService
