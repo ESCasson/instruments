@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService, ICredit } from '../Services/data.service';
 
 @Component({
   selector: 'app-main-layout',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainLayoutComponent implements OnInit {
 
-  constructor() { }
+  data: Array<ICredit | null> = [];
+
+  constructor(
+    private dataService: DataService
+  ) { }
 
   ngOnInit(): void {
+    this.data = this.dataService.getData()
+    console.log('mainlayout', this.data[0])
   }
 
 }
