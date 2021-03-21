@@ -10,20 +10,23 @@
 
               </div>
               <div class="table">
-                  <ng-container  *ngFor="let col of data[0] | keyvalue">
-                      <div class="col-header" (click)="handleSort(col.key)">
-                          {{col.key}}
-                      </div>
-
-                  </ng-container>
-                  <ng-container *ngFor="let row of data">
-                    <ng-container *ngFor="let item of row | keyvalue">
-                        <div>
-                            {{item.value}}
+                  <ng-container *ngIf="data">
+                    <ng-container  *ngFor="let col of types">
+                        <div class="col-header" (click)="handleSort(col)">
+                            {{col}}
                         </div>
+  
                     </ng-container>
-
+                    <ng-container *ngFor="let row of data">
+                      <ng-container *ngFor="let item of row | keyvalue">
+                          <div>
+                              {{item.value}}
+                          </div>
+                      </ng-container>
+  
+                    </ng-container>
                   </ng-container>
+
               </div>
               <div class="spacer">
 

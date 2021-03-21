@@ -7,7 +7,9 @@ import { ICredit } from 'src/app/Services/data.service';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
-  @Input() data: Array<ICredit | null>
+  @Input() data: Array< ICredit | null> = [];
+
+  types = ['Asset Class', 'Price', 'Ticker'];
 
   constructor() { }
 
