@@ -35,7 +35,17 @@ export class TableComponent implements OnInit {
     
   }
   sortTicker() {
-    throw new Error("Method not implemented.");
+    console.log('sort Ticker')
+    this.data.sort((a, b) => {
+      if (a.ticker < b.ticker) {
+        return -1;
+      }
+      if (a.ticker > b.ticker) {
+        return 1;
+      }
+  
+      return 0;
+    })
   }
   sortPriceDesending() {
     this.data.sort((a, b) => {
@@ -53,7 +63,25 @@ export class TableComponent implements OnInit {
 
 
   sortAssetClass() {
-    throw new Error("Method not implemented.");
+    const macro = [];
+    const equities = [];
+    const credit = [];
+    const other = [];
+    
+    this.data.forEach(item => {
+      if(item.assetClass === 'Macro'){
+        macro.push(item);
+      } else if(item.assetClass === 'Equities'){
+        equities.push(item);
+      } else if (item.assetClass === 'Credit'){
+        credit.push(item);
+      } else {
+        other.push(item);
+      }
+      this.data = [...macro, ...equities, ...credit, ...other]
+
+      
+    });
   }
 
   getCSSClasses(entry: ICredit, cell: any ){
