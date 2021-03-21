@@ -7,7 +7,7 @@ import { ICredit } from 'src/app/Services/data.service';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
-  
+
   @Input() data: Array< ICredit | null> = [];
 
   types = ['Asset Class', 'Price', 'Ticker'];
@@ -15,17 +15,15 @@ export class TableComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.data)
   }
 
   handleSort(type: string){
-
     switch (type){
       case 'Asset Class' :
         this.sortAssetClass();
         break;
       case 'Price':
-        this.sortPriceDesending();
+        this.sortPriceDescending();
         break;
       case 'Ticker':
         this.sortTicker();
@@ -43,11 +41,10 @@ export class TableComponent implements OnInit {
       if (a.ticker > b.ticker) {
         return 1;
       }
-  
       return 0;
     })
   }
-  sortPriceDesending() {
+  sortPriceDescending() {
     this.data.sort((a, b) => {
     if (a.price < b.price) {
       return 1;
@@ -59,8 +56,6 @@ export class TableComponent implements OnInit {
     return 0;
   })
   }
-
-
 
   sortAssetClass() {
     const macro = [];
@@ -78,9 +73,7 @@ export class TableComponent implements OnInit {
       } else {
         other.push(item);
       }
-      this.data = [...macro, ...equities, ...credit, ...other]
-
-      
+      this.data = [...macro, ...equities, ...credit, ...other]   
     });
   }
 
