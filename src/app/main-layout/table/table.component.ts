@@ -15,4 +15,8 @@ export class TableComponent implements OnInit {
     console.log(this.data)
   }
 
+  handleSort(type: string){
+    console.log(type)
+  }
+
 }

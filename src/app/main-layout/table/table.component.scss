@@ -18,5 +18,21 @@ nz-breadcrumb {
 
   .table-wrapper {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: auto minmax(400px, 800px) auto;
+    
+  }
+ 
+
+  .table {
+    background-color: #2c7e4e;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 50px;
+    text-align: center;
+  }
+
+  .col-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
   }

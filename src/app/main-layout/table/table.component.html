@@ -7,13 +7,26 @@
       <div class="inner-content">
           <div class="table-wrapper">
               <div class="spacer">
-spacer
+
               </div>
               <div class="table">
-                  table
+                  <ng-container  *ngFor="let col of data[0] | keyvalue">
+                      <div class="col-header" (click)="handleSort(col.key)">
+                          {{col.key}}
+                      </div>
+
+                  </ng-container>
+                  <ng-container *ngFor="let row of data">
+                    <ng-container *ngFor="let item of row | keyvalue">
+                        <div>
+                            {{item.value}}
+                        </div>
+                    </ng-container>
+
+                  </ng-container>
               </div>
               <div class="spacer">
-spacer
+
             </div>
 
           </div>
