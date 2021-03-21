@@ -16,7 +16,6 @@ export class MainLayoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.data = this.dataService.getData()
-    console.log('mainlayout', this.data[0])
   }
 
 }

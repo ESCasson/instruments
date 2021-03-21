@@ -13,4 +13,14 @@ describe('DataService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  describe('getData', ()=> {
+
+    it('should get data', () => {
+      service.getData();
+      expect(service.data.length).toBeGreaterThan(0);
+    })
+  })
+
+
 });

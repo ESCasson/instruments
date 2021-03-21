@@ -6,59 +6,38 @@
       </nz-breadcrumb>
       <div class="inner-content">
           <div class="table-wrapper">
-              <div class="spacer">
-
-              </div>
+              <div class="spacer"></div>
               <div class="table">
                   <ng-container *ngIf="data.length > 0 else noData">
                     <ng-container  *ngFor="let col of types">
                         <div class="col-header" (click)="handleSort(col)" [nzTooltipTitle]="titleTemplate" nzTooltipPlacement="top" nz-tooltip>
                             {{col}}      <i nz-icon nzType="down-square" nzTheme="outline"></i>
                         </div>
-                        <ng-template #titleTemplate>
-                            <div>
-                                Sort By {{col}}
-                            </div>
-                          </ng-template>
-  
+                            <ng-template #titleTemplate>
+                                <div>
+                                    Sort By {{col}}
+                                </div>
+                            </ng-template>
                     </ng-container>
                     <ng-container *ngFor="let row of data">
-                     
                             <ng-container *ngFor="let item of row | keyvalue">
-                                <div 
-                                 [ngClass]="getCSSClasses(row, item)"
-                                >
-                                    {{item.value}}
-                               
+                                <div [ngClass]="getCSSClasses(row, item)">
+                                  {{item.value}}
                                 </div>
                             </ng-container>
-                            
-                 
-                    
-  
                     </ng-container>
                   </ng-container>
                   <ng-template #noData>
-                      <div>
-               
-                      </div>
+                      <div></div>
                       <div class="noData">
                         No Data
                       </div>
-                      <div>
-                
-                      </div>
+                      <div></div>
                   </ng-template>
-
               </div>
-              <div class="spacer">
-
-            </div>
-
+              <div class="spacer"></div>
           </div>
-          
       </div>
-
 </nz-content>
   
 

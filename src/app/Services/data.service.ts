@@ -16,7 +16,6 @@ export class DataService {
 
   getData(){
     this.data = data;
-    console.log(this.data)
     return this.data
   }
 }
