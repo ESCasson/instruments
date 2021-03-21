@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     NzBreadCrumbModule,
     NzMenuModule,
     NzIconModule,
-    HttpClientModule
+    HttpClientModule,
+
   
 
   ],

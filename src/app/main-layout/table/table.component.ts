@@ -38,8 +38,20 @@ export class TableComponent implements OnInit {
     throw new Error("Method not implemented.");
   }
   sortPriceDesending() {
-    throw new Error("Method not implemented.");
+    this.data.sort((a, b) => {
+    if (a.price < b.price) {
+      return 1;
+    }
+    if (a.price > b.price) {
+      return -1;
+    }
+
+    return 0;
+  })
   }
+
+
+
   sortAssetClass() {
     throw new Error("Method not implemented.");
   }

@@ -10,7 +10,7 @@
 
               </div>
               <div class="table">
-                  <ng-container *ngIf="data">
+                  <ng-container *ngIf="data.length > 0 else noData">
                     <ng-container  *ngFor="let col of types">
                         <div class="col-header" (click)="handleSort(col)">
                             {{col}}      <i nz-icon nzType="down-square" nzTheme="outline"></i>
@@ -33,6 +33,17 @@
   
                     </ng-container>
                   </ng-container>
+                  <ng-template #noData>
+                      <div>
+               
+                      </div>
+                      <div class="noData">
+                        No Data
+                      </div>
+                      <div>
+                
+                      </div>
+                  </ng-template>
 
               </div>
               <div class="spacer">
