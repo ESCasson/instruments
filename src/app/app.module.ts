@@ -11,7 +11,8 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { TableComponent } from './main-layout/table/table.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -31,6 +32,9 @@ import { HttpClientModule } from '@angular/common/http';
     NzMenuModule,
     NzIconModule,
     HttpClientModule,
+    NzToolTipModule,
+    BrowserAnimationsModule
+    
 
   
 

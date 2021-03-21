@@ -12,9 +12,14 @@
               <div class="table">
                   <ng-container *ngIf="data.length > 0 else noData">
                     <ng-container  *ngFor="let col of types">
-                        <div class="col-header" (click)="handleSort(col)">
+                        <div class="col-header" (click)="handleSort(col)" [nzTooltipTitle]="titleTemplate" nzTooltipPlacement="top" nz-tooltip>
                             {{col}}      <i nz-icon nzType="down-square" nzTheme="outline"></i>
                         </div>
+                        <ng-template #titleTemplate>
+                            <div>
+                                Sort By {{col}}
+                            </div>
+                          </ng-template>
   
                     </ng-container>
                     <ng-container *ngFor="let row of data">

@@ -67,7 +67,7 @@ export class TableComponent implements OnInit {
     const equities = [];
     const credit = [];
     const other = [];
-    
+
     this.data.forEach(item => {
       if(item.assetClass === 'Macro'){
         macro.push(item);
@@ -108,6 +108,10 @@ export class TableComponent implements OnInit {
       }
     } else return assetClass;
 
+  }
+
+  tooltip(type: string){
+    return "Sort by " + type
   }
 
 
