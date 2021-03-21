@@ -211,4 +211,110 @@ describe('TableComponent', () => {
     })
   })
 
+  describe('CSS Classes',()=> {
+    describe('getCSSClasses',()=>{
+      beforeEach(()=>{
+        
+      })
+      it('should call getPriceCSS Class with asset class and cell, class Credit', ()=> {
+        const entry = { 
+          "ticker": "ALPHA",
+          "price": 3150.67,
+          "assetClass": 'Credit'
+        };
+
+        const getPriceCSSClassSpy = jest.spyOn(component, 'getPriceCSSClass');
+        component.getCSSClasses(entry, {price: 3150.67});
+        expect(getPriceCSSClassSpy).toHaveBeenCalledWith('credit', {price: 3150.67})
+      })
+      it('should call getPriceCSS Class with asset class and cell', ()=> {
+        const entry = { 
+          "ticker": "ALPHA",
+          "price": 3150.67,
+          "assetClass": 'Credit'
+        };
+
+        const getPriceCSSClassSpy = jest.spyOn(component, 'getPriceCSSClass');
+        component.getCSSClasses(entry, {price: 3150.67});
+        expect(getPriceCSSClassSpy).toHaveBeenCalledWith('credit', {price: 3150.67})
+      })
+      it('should call getPriceCSS Class with asset class and cell, class Macro', ()=> {
+        const entry = { 
+          "ticker": "ALPHA",
+          "price": 3150.67,
+          "assetClass": 'Macro'
+        };
+
+        const getPriceCSSClassSpy = jest.spyOn(component, 'getPriceCSSClass');
+        component.getCSSClasses(entry, {price: 3150.67});
+        expect(getPriceCSSClassSpy).toHaveBeenCalledWith('macro', {price: 3150.67})
+      })
+      it('should call getPriceCSS Class with asset class and cell, class Equities', ()=> {
+        const entry = { 
+          "ticker": "ALPHA",
+          "price": 3150.67,
+          "assetClass": 'Equities'
+        };
+
+        const getPriceCSSClassSpy = jest.spyOn(component, 'getPriceCSSClass');
+        component.getCSSClasses(entry, {price: 3150.67});
+        expect(getPriceCSSClassSpy).toHaveBeenCalledWith('equities', {price: 3150.67})
+      })
+      it('should NOT call getPriceCSS Class with asset class and cell, class random', ()=> {
+        const entry = { 
+          "ticker": "ALPHA",
+          "price": 3150.67,
+          "assetClass": 'things'
+        };
+
+        const getPriceCSSClassSpy = jest.spyOn(component, 'getPriceCSSClass');
+        component.getCSSClasses(entry, {price: 3150.67});
+        expect(getPriceCSSClassSpy).toHaveBeenCalledTimes(0)
+      })
+
+
+    })
+    describe('getPriceCSSClass', ()=> {
+      describe('cell key === price', () => {
+        it('should return class and positive if value >= 0', ()=>{
+          const assetClass = 'things';
+          const cell = {key: 'price', value: 0};
+          const getPriceCSSClassSpy = jest.spyOn(component, 'getPriceCSSClass');
+          component.getPriceCSSClass(assetClass, cell);
+          expect(getPriceCSSClassSpy).toHaveReturnedWith('things positive');
+
+
+        })
+        it('should return class and negative if value < 0', ()=>{
+          const assetClass = 'things';
+          const cell = {key: 'price', value: -0.1};
+          const getPriceCSSClassSpy = jest.spyOn(component, 'getPriceCSSClass');
+          component.getPriceCSSClass(assetClass, cell);
+          expect(getPriceCSSClassSpy).toHaveReturnedWith('things negative');
+
+
+        })
+      })
+      describe('cell key !== price', () => {
+        it('should return assest class only', ()=> {
+          const assetClass = 'things';
+          const cell = {key: 'other', value: -0.1};
+          const getPriceCSSClassSpy = jest.spyOn(component, 'getPriceCSSClass');
+          component.getPriceCSSClass(assetClass, cell);
+          expect(getPriceCSSClassSpy).toHaveReturnedWith('things');
+        })
+       
+      })
+
+    })
+  })
+
+  describe('tooltip', ()=>{
+    it('should return string of Sort by type', ()=>{
+      const tooltipSpy = jest.spyOn(component, 'tooltip');
+          component.tooltip('elephants');
+          expect(tooltipSpy).toHaveReturnedWith('Sort by elephants');
+    })
+  })
+
 });
