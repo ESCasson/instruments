@@ -21,7 +21,7 @@
                     </ng-container>
                     <ng-container *ngFor="let row of data">
                             <ng-container *ngFor="let item of row | keyvalue">
-                                <div [ngClass]="getCSSClasses(row, item)">
+                                <div class="item" [ngClass]="getCSSClasses(row, item)">
                                   {{item.value}}
                                 </div>
                             </ng-container>
