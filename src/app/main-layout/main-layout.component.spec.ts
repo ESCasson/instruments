@@ -9,6 +9,9 @@ describe('MainLayoutComponent', () => {
 
 
   beforeEach(() => {
+    dataServiceMock = {
+      getData: jest.fn() 
+    }
     fixture = new MainLayoutComponent(
       dataServiceMock
     )
@@ -19,6 +22,16 @@ describe('MainLayoutComponent', () => {
     
     expect(fixture).toBeTruthy();
   });
+  describe('ngOnInit', ()=> {
+    it('should add data to data variable', ()=>{ 
+      dataServiceMock.getData.mockReturnValueOnce([1,2,3])
+      expect(fixture.data.length).toEqual(0);
+      fixture.ngOnInit();
+      expect(dataServiceMock.getData()).toBeCalled;
+      expect(fixture.data.length).toEqual(3);
+      
+    })
+  })
 
   
 });
