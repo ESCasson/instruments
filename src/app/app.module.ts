@@ -10,6 +10,7 @@ import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { TableComponent } from './main-layout/table/table.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -27,7 +28,9 @@ import { TableComponent } from './main-layout/table/table.component';
     NzLayoutModule,
     NzBreadCrumbModule,
     NzMenuModule,
-    NzIconModule
+    NzIconModule,
+    HttpClientModule
+  
 
   ],
   providers: [],

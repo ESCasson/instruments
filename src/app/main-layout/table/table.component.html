@@ -13,17 +13,23 @@
                   <ng-container *ngIf="data">
                     <ng-container  *ngFor="let col of types">
                         <div class="col-header" (click)="handleSort(col)">
-                            {{col}}
+                            {{col}}      <i nz-icon nzType="down-square" nzTheme="outline"></i>
                         </div>
   
                     </ng-container>
                     <ng-container *ngFor="let row of data">
-                      <ng-container *ngFor="let item of row | keyvalue">
-                          <div>
-                              {{item.value}}
-                              <i nz-icon nzType="down-square" nzTheme="outline"></i>
-                          </div>
-                      </ng-container>
+                     
+                            <ng-container *ngFor="let item of row | keyvalue">
+                                <div 
+                                 [ngClass]="getCSSClasses(row, item)"
+                                >
+                                    {{item.value}}
+                               
+                                </div>
+                            </ng-container>
+                            
+                 
+                    
   
                     </ng-container>
                   </ng-container>

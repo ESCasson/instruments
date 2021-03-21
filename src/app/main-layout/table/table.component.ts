@@ -18,7 +18,57 @@ export class TableComponent implements OnInit {
   }
 
   handleSort(type: string){
-    console.log(type)
+
+    switch (type){
+      case 'Asset Class' :
+        this.sortAssetClass();
+        break;
+      case 'Price':
+        this.sortPriceDesending();
+        break;
+      case 'Ticker':
+        this.sortTicker();
+        break;
+      default:
+        break ;
+    }
+    
   }
+  sortTicker() {
+    throw new Error("Method not implemented.");
+  }
+  sortPriceDesending() {
+    throw new Error("Method not implemented.");
+  }
+  sortAssetClass() {
+    throw new Error("Method not implemented.");
+  }
+
+  getCSSClasses(entry: ICredit, cell: any ){
+    switch (entry.assetClass) {
+      case 'Macro': 
+       return this.getPriceCSSClass('macro', cell);
+    
+      case 'Equities': 
+       return this.getPriceCSSClass('equities', cell);
+
+      case 'Credit':
+        return this.getPriceCSSClass('credit', cell);
+      default: 
+      break;
+    }
+  }
+
+  getPriceCSSClass(assetClass: string, cell: any){
+    if(cell.key === 'price'){
+      if(cell.value >= 0){
+        return assetClass +' ' + 'positive';
+      } else {
+        return assetClass + ' ' + 'negative';
+      }
+    } else return assetClass;
+
+  }
+
 
 }
